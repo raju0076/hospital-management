@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div className="w-full bg-gradient-to-r from-blue-600 to-indigo-600  px-6 py-3  flex items-center justify-between">
+    <div className="w-full  bg-gradient-to-b from-slate-950 via-slate-950 to-black/95 backdrop-blur-xl  px-6 py-2  flex items-center justify-between">
 
       <div className="flex items-center gap-3">
         <img
@@ -19,7 +19,7 @@ export default function Navbar() {
 
       <div className="flex items-center gap-5">
         <div className="text-right">
-          <p className="font-semibold text-gray-800">Opubor Tony</p>
+          <p className="font-semibold text-[white]">Opubor Tony</p>
           <p className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md inline-block">
             Hospital Admin
           </p>
