@@ -19,7 +19,7 @@ export default function AdminDashboard() {
   return (
     <div className="p-6">
      
-      {/* STATS GRID */}
+   
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
         {stats.map((item, i) => (
           <div

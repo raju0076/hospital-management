@@ -10,6 +10,7 @@ import {
   Typography
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { UserStar } from 'lucide-react';
 
 export default function AdminSidebar() {
   const pathname = usePathname();
@@ -46,7 +47,7 @@ export default function AdminSidebar() {
         { label: "Nurses", path: "/dashboard/hospital-admin/nurses", icon: "/icons/nurse.png" },
         { label: "Pharmacists", path: "/dashboard/hospital-admin/pharmacists", icon: "/icons/pharmacy.png" },
         { label: "Receptionists", path: "/dashboard/hospital-admin/receptionists", icon: "/icons/reception.png" },
-        { label: "Accountants", path: "/dashboard/hospital-admin/accounts", icon: "/icons/account.png" },
+        { label: "Accountants", path: "/dashboard/hospital-admin/accountants", icon: "/icons/account.png" },
         { label: "Lab Technicians", path: "/dashboard/hospital-admin/lab", icon: "/icons/lab.png" }
       ]
     },
@@ -84,13 +85,13 @@ export default function AdminSidebar() {
   ];
 
   return (
-    <div className="w-64 min-h-screen bg-white shadow-2xl p-4 overflow-y-auto">
+    <div className="w-64 min-h-screen bg-white  p-4 overflow-y-auto">
 
-      <h2 className="text-xl font-bold text-blue-700 flex items-center gap-2 mb-4">
-        <Image src="/icons/admin.png" width={28} height={28} alt="admin icon" />
+      <h2 className="text-xl font-bold text-blue-700 flex items-center gap-2 mb-2 p-2">
+       <UserStar />
         ADMIN
       </h2>
-
+     <div className="border-2 border-b-black  "></div>
       {sections.map((section, idx) => (
         <Accordion
           key={idx}
@@ -102,9 +103,21 @@ export default function AdminSidebar() {
           }}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className="text-gray-700 font-semibold text-sm">
-              {section.section}
-            </Typography>
+          <Typography
+  sx={{
+    fontSize: "0.75rem",    
+    fontWeight: 600,
+    color: "#374151",
+    fontFamily: "Roboto, sans-serif",
+    whiteSpace: "nowrap",     
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    paddingLeft: "6px",
+  }}
+>
+  {section.section}
+</Typography>
+
           </AccordionSummary>
 
           <AccordionDetails className="flex flex-col gap-2">
@@ -121,7 +134,6 @@ export default function AdminSidebar() {
                       : "bg-white hover:bg-gray-100 text-gray-700 border-gray-200"
                     }`}
                 >
-                  <Image src={item.icon} width={20} height={20} alt={item.label} />
                   <span className="text-sm">{item.label}</span>
                 </Link>
               );
