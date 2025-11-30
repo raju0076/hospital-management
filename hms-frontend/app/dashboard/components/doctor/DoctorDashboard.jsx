@@ -1,41 +1,47 @@
-import Image from "next/image";
+"use client";
 
 export default function DoctorDashboard() {
+  const items = [
+    { label: "Patients", count: 7, color: "bg-indigo-100 text-indigo-700" },
+    { label: "Queue", count: 3, color: "bg-emerald-100 text-emerald-700" },
+    { label: "Prescriptions", count: 3, color: "bg-orange-100 text-orange-700" },
+    { label: "Appointments", count: 1, color: "bg-cyan-100 text-cyan-700" },
+    { label: "Operation", count: 3, color: "bg-red-100 text-red-700" },
+    { label: "Birth Report", count: 2, color: "bg-purple-100 text-purple-700" },
+    { label: "Death Report", count: 9, color: "bg-gray-200 text-gray-800" },
+  ];
+
   return (
     <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold text-indigo-700">DOCTOR</h1>
 
+      {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { label: "Patients", count: 7, img: "/doctor.png" },
-          { label: "Queue", count: 3, img: "/doctor.png" },
-          { label: "Prescriptions", count: 3, img: "/doctor.png" },
-          { label: "Appointments", count: 1, img: "/doctor.png" },
-          { label: "Operation", count: 3, img: "/doctor.png" },
-          { label: "Birth Report", count: 2, img: "/doctor.png" },
-          { label: "Death Report", count: 9, img: "/doctor.png" },
-        ].map((item, i) => (
+        {items.map((item, i) => (
           <div
             key={i}
-            className="bg-white shadow rounded-xl p-4 flex items-center gap-4"
+            className={`border rounded-xl p-4 bg-white shadow-sm hover:shadow-md transition flex flex-col`}
           >
-            <Image src={item.img} alt={item.label} width={50} height={50} />
-            <div>
-              <p className="text-2xl font-bold text-indigo-600">
-                {item.count}
-              </p>
-              <p className="text-gray-600">{item.label}</p>
+            <div
+              className={`w-12 h-12 rounded-lg flex items-center justify-center font-bold text-lg ${item.color}`}
+            >
+              {item.count}
             </div>
+
+            <p className="mt-3 text-sm font-semibold text-black">
+              {item.label}
+            </p>
           </div>
         ))}
       </div>
 
+      {/* Calendar placeholder */}
       <div className="bg-white shadow rounded-xl p-6">
-        <h2 className="text-xl font-bold mb-4">Calendar</h2>
+        <h2 className="text-xl font-bold mb-4 text-black">Calendar</h2>
         <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center text-gray-500">
           Calendar UI Placeholder
         </div>
       </div>
+
     </div>
   );
 }

@@ -102,7 +102,6 @@ export default function DoctorsPage() {
           </div>
         </TabPanel>
 
-        {/* ================== TAB 2: ADD DOCTOR ================== */}
 
         <TabPanel value="2">
           <div className="w-full max-w-3xl bg-[#e8edff] border border-blue-200 shadow-lg rounded-xl p-8">

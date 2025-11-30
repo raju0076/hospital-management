@@ -8,7 +8,7 @@ async function getRole() {
 }
 
 export default async function DashboardLayout({ children }) {
-  const role = await getRole();
+  const role = "DOCTOR"
 
   return (
     <div className="flex min-h-screen bg-gray-100">
